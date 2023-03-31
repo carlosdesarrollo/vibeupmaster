@@ -1,0 +1,26 @@
+.card {
+	/* padding: 1.5rem; */
+	/* padding-bottom: 1.75rem; */
+	padding: 4px;
+	background: #fefefe;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	box-shadow: 2px 2px 3px rgba(4, 255, 156, 0.5);
+	border-radius: 15px;
+}
+
+.cardTitle {
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.cardBody {
+	margin-top: 1rem;
+}
+
+.showMore {
+	text-decoration: underline;
+	/* color de enlace */
+	color: #02d886;
+	cursor: pointer;
+}

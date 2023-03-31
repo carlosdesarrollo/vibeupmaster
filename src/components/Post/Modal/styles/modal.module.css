@@ -1,0 +1,88 @@
+.container {
+	@apply fixed top-0 left-0 w-full flex items-end justify-center;
+	z-index: 1000;
+	height: -webkit-fill-available;
+}
+
+.overlay {
+	@apply fixed top-0 left-0 w-full h-full bg-black;
+	height: -webkit-fill-available;
+}
+
+.modal {
+	@apply bg-white rounded-lg shadow-lg w-full relative focus:border-0 focus:border-none;
+	max-height: -webkit-fill-available;
+	overflow-y: auto;
+}
+
+.closeBtn {
+	@apply absolute right-4 rounded-full bg-gray-200 p-2 cursor-pointer w-8 h-8 flex items-center justify-center overflow-hidden hover:bg-gray-300;
+}
+
+.header {
+	@apply h-[68px] flex justify-center items-center relative border-b border-gray-200;
+}
+
+.textarea {
+	--username: "Username";
+	@apply focus:outline-none cursor-text text-gray-700;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	resize: none;
+}
+
+.textarea:empty::before {
+	content: "¿Qué estás pensando, " var(--username) "?";
+	@apply text-gray-400;
+}
+
+.textarea_wrapper {
+	min-height: 160px;
+	max-height: 350px !important;
+	overflow-y: auto;
+	padding: 1px 1rem;
+}
+.footer {
+	@apply p-4;
+}
+.mediacontainer {
+	@apply flex justify-between flex-wrap items-center rounded-md border border-gray-200 p-2 pl-4 font-medium text-sm mb-4 text-center;
+}
+
+.mediacontainer span {
+	@apply hidden;
+}
+
+.btnMedia {
+	@apply text-[#41ceed] py-2 px-10 flex justify-center items-center gap-3 rounded-md hover:bg-gray-100 w-full;
+}
+
+.btnMedia.active {
+	@apply bg-cyan-100;
+}
+
+.controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 8px 6px;
+	pointer-events: none;
+}
+@media (min-width: 568px) {
+	.container {
+		@apply items-center;
+	}
+
+	.modal {
+		@apply max-w-[500px];
+	}
+
+	.mediacontainer span {
+		@apply block;
+	}
+	.btnMedia {
+		@apply w-auto;
+	}
+}

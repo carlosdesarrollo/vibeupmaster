@@ -1,0 +1,87 @@
+.aside {
+	width: 100px;
+	position: sticky;
+	top: var(--navbarHeight);
+	height: calc(100vh - var(--navbarHeight));
+	/* background-color: aqua; */
+	overflow: auto;
+	padding-bottom: 1rem;
+	display: none;
+}
+
+@media (min-width: 720px) {
+	.aside {
+		display: block;
+	}
+}
+
+.menu {
+	padding-top: 2px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.menuList {
+	padding-top: 24px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	/* background-color: aqua; */
+	gap: 10px;
+	border-right: 1px solid #e0e0e0;
+}
+
+.listItem {
+	/* background-color: aquamarine; */
+	display: flex;
+	justify-content: center;
+}
+.menuItem {
+	position: relative;
+	width: 100%;
+	height: fit-content;
+	background-color: aqua;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6px 0;
+}
+
+.menuItem.active {
+	background: #f1f5f9;
+	border-radius: 5px;
+	border: 1px solid rgba(172, 172, 172, 0.6);
+	box-shadow: 1.5px 1.5px 3px rgba(110, 255, 179, 0.5),
+		-1px -1px 3px rgba(110, 255, 179, 0.5), inset -2px -2px 2px #b8cce0;
+}
+
+.arrow {
+	position: absolute;
+	right: 8px;
+}
+
+.orb {
+	--size: 76px;
+	width: var(--size);
+	height: var(--size);
+	background: url("/assets/images/orbs.png") no-repeat;
+	background-size: 100%;
+	background-position: center center;
+	transform: translate(1px, -1px);
+}
+.document {
+	width: 43px;
+	height: 54px;
+	background: url("/assets/images/document.png") no-repeat;
+	background-size: 100%;
+	background-position: center center;
+}
+.altoParlante {
+	width: 46px;
+	height: 46px;
+	background: url("/assets/images/altoparlante.png") no-repeat;
+	background-size: 100%;
+	background-position: center center;
+}

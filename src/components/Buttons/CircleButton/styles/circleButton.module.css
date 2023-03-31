@@ -1,0 +1,28 @@
+.circleButton {
+	--size: 60px;
+	min-width: var(--size);
+	min-height: var(--size);
+	border-radius: 50%;
+	background: #fcfcfc;
+	box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.36),
+		1.5px 1.5px 3px rgba(0, 0, 0, 0.4),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.39);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.1s ease;
+}
+
+.circleButton:hover {
+	box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.16),
+		1.5px 1.5px 3px rgba(0, 0, 0, 0.2),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.19), 0 0 0 2px #f5f5f5;
+}
+
+.circleButton:active {
+	transform: scale(0.94);
+	background-color: #f9f9f9;
+	box-shadow: -1px -1px 3px rgba(200, 200, 200, 0.25),
+		1.5px 1.5px 3px rgba(200, 200, 200, 0.25),
+		inset -1px -1px 3px rgba(200, 200, 200, 0.2), 0 0 0 2px #f5f5f5;
+}

@@ -1,0 +1,246 @@
+.post {
+	position: relative;
+	padding: 1.25rem 1rem;
+	background-color: #fff;
+	border: 1px solid rgba(121, 121, 121, 0.75);
+	box-shadow: 2px 3px 3px rgba(4, 255, 156, 0.3);
+	border-radius: 10px;
+}
+
+.wrapperpostHeaderInfo {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.postHeader {
+	padding: 0 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.titulo {
+	font-size: 1.25rem;
+	font-weight: 700;
+	font-size: 17px;
+	line-height: 1.42rem;
+}
+
+.subInfo {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	margin-bottom: 4px;
+}
+
+.span {
+	font-size: 13px;
+	color: #8a8a8a;
+}
+
+.translateBtn {
+	display: flex;
+	position: relative;
+	background: #f9fffd;
+	border: 0.5px solid rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 1px 5px #e7e7e7;
+	border-radius: 1rem;
+	padding: 2px 8px;
+	align-items: center;
+}
+
+.translateBtn:hover {
+	background: #eefef8;
+}
+
+.translateBtn:active {
+	background-color: #d8f7eb;
+	transform: scale(0.98);
+}
+
+.optionPostBtn {
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("/assets/images/option.png") no-repeat;
+	overflow: hidden;
+	background-size: 25px;
+	background-position: center;
+	background-color: #e0fff3;
+}
+
+.optionPostBtn:hover {
+	background-color: #cdffec;
+}
+
+.optionPostBtn:active {
+	background-color: #b2ffd7;
+	transform: scale(0.98);
+}
+
+.postBody {
+	margin-bottom: 1rem;
+}
+
+.postBody p {
+	font-size: 15px;
+	@apply font-normal;
+}
+
+.showMore {
+	text-decoration: underline;
+	/* color de enlace */
+	color: #02d886;
+	cursor: pointer;
+}
+
+.backgroundContainer {
+	width: 100%;
+	min-height: 380px;
+	background-color: #eee;
+	/* border-radius: 10px; */
+	margin: 0.75rem 0;
+	font-size: x-large;
+	font-weight: 500;
+	color: #808080;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.media_wrapper {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: blueviolet;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.postFooter {
+	@apply px-4 pb-3;
+}
+
+.reactionsInfo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	justify-content: space-between;
+	margin: 8px 0;
+}
+
+.reactionsInfo span {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	color: #7e7e7e;
+	font-style: italic;
+}
+.reactionsInfo_left,
+.reactionsInfo_right {
+	display: flex;
+	align-items: center;
+}
+
+.reactionsInfo_left {
+	gap: 6px;
+}
+
+.reactionsInfo_right {
+	gap: 10px;
+}
+
+.reactionsInfo_right span:nth-child(2) {
+	padding-left: 8px;
+	border-left: 1px solid #7e7e7e;
+}
+
+@media (min-width: 480px) {
+	.post {
+		padding: 1.25rem;
+	}
+	.backgroundContainer {
+		min-height: 480px;
+	}
+}
+
+/* footer actions */
+.postFooterActions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #52ffac;
+	padding-top: 0.5rem;
+	gap: 0.5rem;
+}
+.postFooterAction {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	column-gap: 0.875rem;
+
+	background: #fdfdfd;
+	box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	min-height: 45px;
+}
+
+.postFooterAction:hover {
+	box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.16),
+		1.5px 1.5px 3px rgba(0, 0, 0, 0.2),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.19), 0 0 0 2px #f5f5f5;
+}
+
+.postFooterAction:active {
+	background-color: #f9f9f9;
+	box-shadow: -1px -1px 3px rgba(200, 200, 200, 0.25),
+		1.5px 1.5px 3px rgba(200, 200, 200, 0.25),
+		inset -1px -1px 3px rgba(200, 200, 200, 0.2), 0 0 0 2px #f5f5f5;
+}
+
+.postFooterAction p {
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 22px;
+	color: #7e7e7e;
+}
+
+.comments_container {
+	margin-top: 0.5rem;
+	border-top: 1px solid #52ffac;
+	padding-top: 1.5rem;
+}
+
+.comment_input {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.input_post {
+	width: 100%;
+	height: 100%;
+	color: #48494a;
+	@apply rounded-3xl bg-[#f0f2f5] border border-transparent py-2 px-4 text-base outline-none focus:border-[#61fbba] text-[15px];
+}
+
+.comments {
+	display: flex;
+	flex-direction: column;
+	flex-direction: column-reverse;
+	margin-top: 1rem;
+	padding-bottom: 0.25rem;
+	gap: 12px;
+}
