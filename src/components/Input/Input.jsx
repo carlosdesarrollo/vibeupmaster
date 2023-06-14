@@ -1,15 +1,40 @@
 import { useState } from "react";
 import EyeIcon from "../Icons/interfaz/EyeIcon";
+import css from "./styles/input.module.scss";
 
 const Input = (props) => {
 	const { error } = props;
 
 	return (
-		<div className='input_wrapper'>
-			<input
-				{...props}
-				className={error ? `input error ${props.className}` : `input`}
-			/>
+		<div className={css.wrapper}>
+			{props.textarea === 1 ? (
+				<textarea
+					data-is-textarea='true'
+					{...props}
+					className={error ? `${css.input} ${css.error}` : css.input}
+				/>
+			) : (
+				<div className='relative flex items-center'>
+					<input
+						type={props.type || "text"}
+						id={props.htmlFor}
+						{...props}
+						className={
+							error ? `${css.input} ${css.error}` : css.input
+						}
+					/>
+					{props.label && (
+						<label
+							htmlFor={props.htmlFor}
+							className={
+								error ? `${css.label} ${css.error}` : css.label
+							}
+						>
+							{error ? `Corregir ${props.label}` : props.label}
+						</label>
+					)}
+				</div>
+			)}
 			{error && (
 				<span className='text-red-500 text-xs text-start ml-0'>
 					{error}
@@ -20,34 +45,38 @@ const Input = (props) => {
 };
 
 const Password = (props) => {
+	const { error, style } = props;
 	const [showPassword, setShowPassword] = useState(false);
 
-	const toggleShowPassword = () => {
+	const togglePassword = () => {
 		setShowPassword(!showPassword);
 	};
 
 	return (
-		<div className='input_wrapper'>
+		<div className={css.wrapper}>
 			<div className='relative items-center flex'>
 				<input
 					{...props}
 					type={showPassword ? "text" : "password"}
-					className={
-						props.error ? "input error pr-10" : "input pr-10"
-					}
+					className={error ? `${css.input} ${css.error}` : css.input}
+					style={{
+						...style,
+						paddingRight: "2.5rem",
+					}}
 				/>
 				<button
 					type='button'
 					role='button'
-					className='absolute cursor-pointer right-4 text-gray-600'
-					onClick={toggleShowPassword}
+					title='Mostrar contraseña'
+					className='absolute w-8 h-8 hover:bg-[#f0f2f5] flex justify-center items-center rounded-full cursor-pointer right-2.5 text-gray-600'
+					onClick={togglePassword}
 				>
-					<EyeIcon size={18} showeye={showPassword ? 1 : 0} />
+					<EyeIcon size={18} showeye={showPassword ? "show" : null} />
 				</button>
 			</div>
-			{props.error && (
+			{error && (
 				<span className='text-red-500 text-xs text-start ml-0'>
-					{props.error}
+					{error}
 				</span>
 			)}
 		</div>

@@ -1,6 +1,6 @@
 import Avatar from "../src/components/Avatar";
 import MainLayout from "../src/layouts/MainLayout";
-import styles from "../styles/Pages/HomePage.module.css";
+import styles from "../styles/Pages/HomePage.module.scss";
 import FilterIcon from "../src/components/Icons/interfaz/FilterIcon";
 import Post from "../src/components/Post";
 import { useEffect, useState } from "react";
@@ -20,6 +20,7 @@ import TextTruncate from "react-text-truncate";
 import { publicacionesApi } from "../src/api";
 import PostsListHome from "../src/components/Post/PostsListHome";
 import ScrollInfinitoLoader from "../src/components/Post/ScrollInfinito";
+import { Publicity } from "../src/components/Publicity";
 
 const HomePage = () => {
 	const router = useRouter();
@@ -63,7 +64,7 @@ const HomePage = () => {
 
 	const getPosts = async () => {
 		setCargando(true);
-		const posts = await publicacionesApi.post("?page=iListarTodPub", {
+		const posts = await publicacionesApi("?page=iListarTodPub", {
 			numero: postsCargados,
 		});
 		const postParse = JSON.parse(posts.data);
@@ -78,7 +79,7 @@ const HomePage = () => {
 
 	const getMorePosts = async () => {
 		setCargando(true);
-		const posts = await publicacionesApi.post("?page=iListarTodPub", {
+		const posts = await publicacionesApi("?page=iListarTodPub", {
 			numero: postsCargados + NUMERO_POSTS,
 		});
 		const postsNuevos = JSON.parse(posts.data);
@@ -143,95 +144,7 @@ const HomePage = () => {
 						)}
 					</div>
 				</div>
-				<div className={styles.asideSection}>
-					<div className={styles.filtersContainer}>
-						<div className={styles.filter}>
-							<div className={styles.filterHeader}>
-								<h3>Marketplace</h3>
-								<button className={styles.filterHeaderButton}>
-									<FilterIcon width={31} />
-								</button>
-							</div>
-							<div className={styles.filterBody}>
-								{[1, 2, 3].map((item, index) => (
-									<div
-										key={index}
-										className={styles.filterBodyItem}
-									>
-										<div
-											className={
-												styles.filterBodyItem_left
-											}
-										>
-											<div
-												className={styles.itemImage}
-											></div>
-										</div>
-										<div
-											className={
-												styles.filterBodyItem_right
-											}
-										>
-											<div className={styles.headItem}>
-												<h3>Product Name</h3>
-												<button
-													className={
-														styles.optionPostBtn
-													}
-												></button>
-											</div>
-											<p>Location</p>
-											<span>Fecha</span>
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-
-						<div className={styles.filter}>
-							<div className={styles.filterHeader}>
-								<h3>Events</h3>
-								<button className={styles.filterHeaderButton}>
-									<FilterIcon width={31} />
-								</button>
-							</div>
-							<div className={styles.filterBody}>
-								{[1, 2, 3].map((item, index) => (
-									<div
-										key={index}
-										className={styles.filterBodyItem}
-									>
-										<div
-											className={
-												styles.filterBodyItem_left
-											}
-										>
-											<div
-												className={styles.itemImage}
-											></div>
-										</div>
-										<div
-											className={
-												styles.filterBodyItem_right
-											}
-										>
-											<div className={styles.headItem}>
-												<h3>Product Name</h3>
-												<button
-													className={
-														styles.optionPostBtn
-													}
-												></button>
-											</div>
-											<p>Location</p>
-											<span>Fecha</span>
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
+				<Publicity />
 			</section>
 			<AnimatePresence>
 				{showPostModal && (

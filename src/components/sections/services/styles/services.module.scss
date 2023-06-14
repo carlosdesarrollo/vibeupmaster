@@ -1,0 +1,23 @@
+.section {
+	padding-top: 10px;
+	@media (min-width: 720px) {
+		padding-left: clamp(0px, 1vw, 1rem);
+	}
+	display: grid;
+	gap: 10px;
+	grid-template-rows: auto 1fr;
+	@media screen and (min-width: 1200px) {
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto;
+	}
+}
+
+.grid_services {
+	padding-top: 2px;
+	padding-bottom: 12px;
+	display: grid;
+	width: 100%;
+	height: fit-content;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+}

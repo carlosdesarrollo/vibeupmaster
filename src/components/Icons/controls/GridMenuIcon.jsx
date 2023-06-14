@@ -2,6 +2,8 @@ const GridMenuIcon = (props) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
+			width='37.5'
+			height='37.5'
 			viewBox='0 0 37.5 37.5'
 			{...props}
 		>

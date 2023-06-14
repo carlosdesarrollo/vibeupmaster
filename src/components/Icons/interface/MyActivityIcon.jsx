@@ -1,0 +1,69 @@
+const MyActivityIcon = (props) => {
+	return (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width={39}
+			height={23}
+			fill='none'
+			viewBox='0 0 39 23'
+			{...props}
+		>
+			<rect
+				width={29.1}
+				height={3.1}
+				x={9.45}
+				y={9.45}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+				rx={1.55}
+			/>
+			<rect
+				width={29.1}
+				height={3.1}
+				x={9.45}
+				y={0.45}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+				rx={1.55}
+			/>
+			<rect
+				width={29.1}
+				height={3.1}
+				x={9.45}
+				y={18.45}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+				rx={1.55}
+			/>
+			<circle
+				cx={2.5}
+				cy={11.5}
+				r={2.05}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+			/>
+			<circle
+				cx={2.5}
+				cy={2.5}
+				r={2.05}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+			/>
+			<circle
+				cx={2.5}
+				cy={20.5}
+				r={2.05}
+				fill='#70FFBA'
+				stroke='#929292'
+				strokeWidth={0.9}
+			/>
+		</svg>
+	);
+};
+
+export default MyActivityIcon;

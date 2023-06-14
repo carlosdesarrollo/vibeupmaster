@@ -117,7 +117,7 @@ const RegisterForm = () => {
 		) => {
 			setLoading(true);
 			try {
-				const usuarioEnt = await seguridadApi.post(
+				const usuarioEnt = await seguridadApi(
 					"?page=iRegistroUsuario",
 					{
 						rolid,
@@ -132,7 +132,7 @@ const RegisterForm = () => {
 					const idUsuarioEnt = usuarioEnt.data.usuarioEnt.id;
 					const usernameEnt = usuarioEnt.data.usuarioEnt.usuario;
 					console.log(idUsuarioEnt);
-					const personaEnt = await seguridadApi.post(
+					const personaEnt = await seguridadApi(
 						"?page=iRegistrarPersona",
 						{
 							personaid: null,
@@ -161,8 +161,6 @@ const RegisterForm = () => {
 						router.push("/auth/login");
 					} else {
 						setLoading(false);
-
-						setMensajeError(personaEnt.data.message);
 					}
 				}
 				if (

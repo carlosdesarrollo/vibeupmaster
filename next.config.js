@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['vibeup-post-images.s3.amazonaws.com'],
+    domains: ['vibeup-perfil-images.s3.amazonaws.com', 'vibeup-post-images.s3.amazonaws.com', 'res.cloudinary.com'],
   },
   async redirects() {
     return [

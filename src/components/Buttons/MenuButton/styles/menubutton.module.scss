@@ -1,0 +1,76 @@
+.listItem {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	width: 100%;
+	cursor: pointer;
+	&:hover {
+		.button {
+			button {
+				background: #fcfffd;
+				border: 1px solid #70ffba;
+				box-shadow: 0px 1.5px 3px rgba(238, 238, 238, 0.25);
+			}
+		}
+		.text {
+			background: #fcfffd;
+			border: 1px solid #70ffba;
+			box-shadow: 0px 1.5px 3px rgba(238, 238, 238, 0.25);
+		}
+	}
+	.button {
+		display: flex;
+		justify-content: center;
+	}
+	.text {
+		width: calc(100% + 2.15rem);
+		height: 100%;
+		overflow: hidden;
+		display: flex;
+		background-color: red;
+		align-items: center;
+		height: fit-content;
+		height: 40px;
+		margin-left: -2.2rem;
+		padding-left: 2.2rem;
+		padding-right: 1rem;
+		color: #5f5f5f;
+
+		background: #fefefe;
+		box-shadow: 0px 1.5px 3px rgba(210, 210, 210, 0.25);
+		border-radius: 18px;
+		border: 1px solid #eeeeee;
+
+		p {
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-weight: 500;
+			font-style: italic;
+			margin-left: 0.75rem;
+			font-size: 15px;
+		}
+	}
+}
+
+.circleButton {
+	--size: 56px;
+	background: #ffffff;
+	box-shadow: inset -0.7px -0.7px 2.5px rgba(146, 146, 146, 0.35);
+	border-radius: 50%;
+	width: var(--size);
+	height: var(--size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: box-shadow 0.2s ease;
+	position: relative;
+	svg {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: calc(var(--size) * 0.58);
+		height: auto;
+	}
+}

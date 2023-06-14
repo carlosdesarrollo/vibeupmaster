@@ -30,7 +30,7 @@ const CommentsPost = ({ post, setCantidadComentarios, imgPrincipalUrl }) => {
 		setLoadingComments(true);
 		const getComments = async () => {
 			try {
-				const resComments = await publicacionesApi.post(
+				const resComments = await publicacionesApi(
 					"?page=iListarComentarios",
 					{
 						idpub: post.id,
@@ -60,7 +60,7 @@ const CommentsPost = ({ post, setCantidadComentarios, imgPrincipalUrl }) => {
 			setComments([...comments, newComment]);
 			setAcceptComment(false);
 			setComentario("");
-			const res = await publicacionesApi.post("?page=iRegComentarios", {
+			const res = await publicacionesApi("?page=iRegComentarios", {
 				publicacionid: post?.id,
 				comentario: capitalized.trim(),
 				usuario: userData?.usuarioEnt?.id,

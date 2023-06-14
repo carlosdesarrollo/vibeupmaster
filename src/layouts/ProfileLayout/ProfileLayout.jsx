@@ -113,7 +113,7 @@ const ProfileLayout = ({ children, getPosts }) => {
 			// si la imagen se subio correctamente
 			if (responseS3.status === 200) {
 				// pasar la imagen a la base de datos por medio de la api
-				const responseUsuarioImg = await seguridadApi.post(
+				const responseUsuarioImg = await seguridadApi(
 					"?page=iRegistroUsuarioImg",
 					{
 						principal: 0,
@@ -124,7 +124,7 @@ const ProfileLayout = ({ children, getPosts }) => {
 					}
 				);
 				// console.log(responseUsuarioImg);
-				const responseImgUser = await seguridadApi.post(
+				const responseImgUser = await seguridadApi(
 					"?page=iCargarUsuImg",
 					{
 						id: userData.usuarioEnt.id,

@@ -1,0 +1,226 @@
+.section {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	// gap: 26px;
+}
+
+
+.postSection {
+	width: 100%;
+	max-width: 680px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-left: 0;
+	@media (min-width: 720px) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	
+}
+
+.inputPostContainer {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr;
+	gap: 0.75rem;
+	width: 100%;
+	/* padding: 12px 16px 20px; */
+}
+
+.input_text_post {
+	width: 100%;
+	max-width: 300px;
+	/* truncar texto max 1 linea con ellipsis*/
+}
+
+.inputShadow {
+	box-shadow: 0px 2px 4px rgba(115, 255, 208, 0.5),
+		inset -1px -1px 3px rgba(147, 147, 147, 0.36),
+		inset 1px 1px 3px rgba(138, 138, 138, 0.6);
+}
+
+.inputShadow:hover {
+	box-shadow: 0px 0px 10px rgba(115, 255, 208, 0.5),
+		inset -1px -1px 3px rgba(147, 147, 147, 0.36),
+		inset 1px 1px 3px rgba(138, 138, 138, 0.6);
+}
+
+.inputPost {
+	@apply bg-gray-50 text-start py-3 px-5 rounded-3xl inputShadow text-gray-500;
+	max-width: 100%;
+}
+
+/* .postsContainer {
+	display: grid;
+	width: 100%;
+} */
+
+/*=============================================
+=            section aside HomePage            =
+=============================================*/
+.asideSection {
+	padding-top: 18px;
+	padding-bottom: 18px;
+	position: sticky;
+	top: var(--navbarHeight);
+	height: calc(100vh - var(--navbarHeight));
+	/* background-color: aqua; */
+	overflow: auto;
+	width: 100%;
+	max-width: 420px;
+
+	display: none;
+}
+
+@media (min-width: 1120px) {
+	.asideSection {
+		display: block;
+	}
+}
+
+.filtersContainer {
+	width: 100%;
+	display: grid;
+	gap: 22px;
+}
+
+.filter {
+	background: #fefefe;
+	border: 1px solid rgba(121, 121, 121, 0.75);
+	box-shadow: 2px 2px 3px rgba(4, 255, 156, 0.5);
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.filterHeader {
+	display: grid;
+	align-items: center;
+	margin-bottom: 2rem;
+	column-gap: 40px;
+	position: relative;
+	text-align: center;
+	min-height: 40px;
+}
+
+.filterHeaderButton {
+	position: absolute;
+	right: 0;
+	background: #f9fffd;
+	box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.36),
+		1.5px 1.5px 3px rgba(0, 0, 0, 0.4),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.39);
+	min-width: 55px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.filterHeaderButton:hover {
+	box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.16),
+		1.5px 1.5px 3px rgba(0, 0, 0, 0.2),
+		inset -1px -1px 3px rgba(0, 0, 0, 0.19), 0 0 0 2px #f5f5f5;
+}
+
+.filterHeaderButton:active {
+	transform: scale(0.94);
+	background-color: #f9f9f9;
+	box-shadow: -1px -1px 3px rgba(200, 200, 200, 0.25),
+		1.5px 1.5px 3px rgba(200, 200, 200, 0.25),
+		inset -1px -1px 3px rgba(200, 200, 200, 0.2), 0 0 0 2px #f5f5f5;
+}
+
+.filterHeader h3 {
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.filterBody {
+	display: grid;
+	gap: 20px;
+}
+
+.filterBodyItem {
+	background: #fefefe;
+	border: 1px solid rgba(121, 121, 121, 0.75);
+	box-shadow: 2px 2px 3px rgba(4, 255, 156, 0.5);
+	border-radius: 15px;
+	padding: 14px;
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	column-gap: 14px;
+}
+
+.filterBodyItem_right h3 {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.filterBodyItem_right p {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #474747;
+}
+
+.filterBodyItem_right span {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 22px;
+	color: #7e7e7e;
+}
+
+.filterBodyItem_right {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.headItem {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.filterBodyItem_left {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.itemImage {
+	border: 1px solid #000000;
+	border-radius: 20px;
+	width: 100%;
+	min-height: calc(100% - 1rem);
+}
+
+.optionPostBtn {
+	width: 35px;
+	height: 35px;
+	background-color: #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("/assets/images/option.png") no-repeat;
+	overflow: hidden;
+	/* background-color: blueviolet; */
+	background-size: 25px;
+	background-position: center;
+	border: 1px solid #eefef8;
+}
+
+.optionPostBtn:hover {
+	background-color: #eefef8;
+}
+
+.optionPostBtn:active {
+	background-color: #d8f7eb;
+	transform: scale(0.98);
+}
+
+/*=====  End of section aside HomePage  ======*/

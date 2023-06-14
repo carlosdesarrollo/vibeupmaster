@@ -1,0 +1,236 @@
+.wrapper {
+	display: grid;
+	gap: 4px;
+	width: 100%;
+}
+
+.input {
+	position: relative;
+	width: 100%;
+	border-radius: 6px;
+	border: 1px solid #e5e7eb;
+	background-color: #fbfbfb;
+	padding: 12px 14px;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+	height: fit-content;
+	color: #202124;
+	font-size: 14px;
+	&:focus {
+		background-color: #fff;
+		border-color: #59f0b1;
+		--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+			0 2px 4px -2px var(--tw-shadow-color);
+		box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+			var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	}
+	&:not(:placeholder-shown) {
+		background-color: #fff;
+		border-color: #59f0b1;
+	}
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		border-color: #59f0b1;
+		-webkit-text-fill-color: #202124;
+		-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+	&.error {
+		border-color: #d93025;
+		background-color: #fff;
+		color: #d93025;
+	}
+	&[data-is-textarea="true"] {
+		min-height: 46.6px;
+		max-height: 200px;
+	}
+	// placeholder styles
+	&[label] {
+		&::placeholder {
+			color: transparent;
+		}
+	}
+}
+
+// estilos de los selects
+.select {
+	position: relative;
+	width: 100%;
+	border-radius: 6px;
+	border: 1px solid #e5e7eb;
+	background-color: #fbfbfb;
+	padding: 12px 14px;
+	padding-left: 10px;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+	height: fit-content;
+	color: #202124;
+	font-size: 14px;
+	option {
+		color: #202124;
+	}
+	&:focus {
+		background-color: #fff;
+		border-color: #59f0b1;
+		--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+			0 2px 4px -2px var(--tw-shadow-color);
+		box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+			var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	}
+	&[data-has-value="true"] {
+		background-color: #fff;
+		border-color: #59f0b1;
+	}
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		border-color: #59f0b1;
+		-webkit-text-fill-color: #202124;
+		-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		border-color: #59f0b1;
+		-webkit-text-fill-color: #202124;
+		-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+
+	&.error {
+		border-color: #d93025;
+		background-color: #fff;
+		color: #d93025;
+	}
+	&[data-has-value="true"] + label {
+		margin-top: -46.6px;
+		font-size: 12px;
+		padding: 2px 6px;
+		border-radius: 10px;
+		background-color: #fff;
+		color: #59f0b1;
+		z-index: 1;
+		font-weight: 500;
+		pointer-events: none;
+		user-select: none;
+		&.error {
+			color: #d93025;
+		}
+	}
+}
+
+// si input tiene focus o tiene valor, afectar estilos del hermano label que esta despues
+.input:focus + label,
+.input:not(:placeholder-shown) + label {
+	margin-top: -46.6px;
+	font-size: 12px;
+	padding: 2px 6px;
+	border-radius: 10px;
+	background-color: #fff;
+	color: #59f0b1;
+	// background-color: #59f0b1;
+	// color: #fff;
+	z-index: 1;
+	font-weight: 500;
+	pointer-events: none;
+	user-select: none;
+	&.error {
+		color: #d93025;
+	}
+}
+
+.label {
+	position: absolute;
+	margin: 0 8px;
+	padding: 4px 6px;
+	transition: all 0.3s ease;
+	color: #a3a5a8;
+	background-color: transparent;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 6px;
+	pointer-events: none;
+	user-select: none;
+	&.error {
+		color: #d93025;
+	}
+}
+
+// INPUT PHONE //
+// estilos del input para celular
+.inputPhoneContainer {
+	display: flex !important;
+	width: 100% !important;
+	align-items: center !important;
+}
+
+.inputPhone {
+	position: relative !important;
+	width: 100% !important;
+	border-radius: 6px !important;
+	border: 1px solid #e5e7eb !important;
+	background-color: #fbfbfb !important;
+	outline: 2px solid transparent !important;
+	outline-offset: 2px !important;
+	height: fit-content !important;
+	color: #202124 !important;
+	font-size: 14px !important;
+	padding-top: 12px !important;
+	padding-bottom: 12px !important;
+	height: auto !important;
+	line-height: inherit !important;
+	&:focus {
+		background-color: #fff !important;
+		border-color: #59f0b1 !important;
+		--tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
+		--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+			0 2px 4px -2px var(--tw-shadow-color) !important;
+		box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+			var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+	}
+	&:not(:placeholder-shown) {
+		background-color: #fff !important;
+		border-color: #59f0b1 !important;
+	}
+	&.error {
+		border-color: #d93025 !important;
+		background-color: #fff !important;
+		color: #d93025 !important;
+	}
+}
+
+.inputPhoneButton {
+	padding: 0 !important;
+	height: calc(100% - 2px) !important;
+	top: initial !important;
+	bottom: initial !important;
+	border-radius: 6px !important;
+	left: 1px !important;
+	border: none !important;
+	background-color: #fff !important;
+	&:hover {
+		background-color: #fff !important;
+		border-radius: 6px !important;
+	}
+	&:focus {
+		background-color: #fff !important;
+		border-radius: 6px !important;
+	}
+	&:active {
+		background-color: #fff !important;
+		border-radius: 6px !important;
+	}
+}
+
+.inputPhoneDropdown {
+	z-index: 1000 !important;
+	.search {
+	}
+}

@@ -1,0 +1,9 @@
+.content {
+	display: grid;
+	// min-height: calc(100vh - var(--navbarHeight));
+	width: 100%;
+    @media (min-width: 720px) {
+        grid-template-columns: auto 1fr;
+        padding: 0px calc(6px + 1.2vw);
+    }
+}

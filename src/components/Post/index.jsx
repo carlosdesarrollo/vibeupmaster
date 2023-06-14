@@ -5,7 +5,7 @@ import HeartIcon from "../Icons/interfaz/HeartIcon";
 import MessageIcon from "../Icons/interfaz/MessageIcon";
 import ShareIcon from "../Icons/interfaz/ShareIcon";
 import TranslateIcon from "../Icons/TranslateIcon";
-import styles from "./styles/post.module.css";
+import css from "./styles/post.module.css";
 import { useInView, motion } from "framer-motion";
 import relativeTime from "dayjs/plugin/relativeTime";
 import MediaContainer from "./MediaContainer";
@@ -52,7 +52,7 @@ const Post = ({ post, imgPrincipalUrl }) => {
 		const getPostDetail = async () => {
 			try {
 				setLoading(true);
-				const response = await publicacionesApi.post(
+				const response = await publicacionesApi(
 					"?page=iListarPublicacionesDetalle",
 					{
 						publicacionid: id,
@@ -72,12 +72,9 @@ const Post = ({ post, imgPrincipalUrl }) => {
 		const getUserPublicacion = async () => {
 			try {
 				setLoadingUser(true);
-				const response = await seguridadApi.post(
-					"?page=iCargarDatosUsu",
-					{
-						id: usuarioid,
-					}
-				);
+				const response = await seguridadApi("?page=iCargarDatosUsu", {
+					id: usuarioid,
+				});
 				const usuario = response.data.usuarioEnt.usuario;
 				const nombreCompleto = response.data.personaEnt.nombrecompleto;
 				setUserPublicacion({
@@ -171,7 +168,7 @@ const Post = ({ post, imgPrincipalUrl }) => {
 									</h3>
 								)}
 
-								<div className={styles.subInfo}>
+								<div className={css.subInfo}>
 									{loadingUser ? (
 										<SkeletonUI
 											width='150px'
@@ -180,12 +177,12 @@ const Post = ({ post, imgPrincipalUrl }) => {
 										/>
 									) : (
 										<>
-											<p className={styles.span}>
+											<p className={css.span}>
 												{"@" +
 													userPublicacion.usuario ||
 													"loremIpsum"}
 											</p>
-											<span className={styles.span}>
+											<span className={css.span}>
 												{getTimeAmigable(fechacreacion)}
 											</span>
 										</>
@@ -194,13 +191,11 @@ const Post = ({ post, imgPrincipalUrl }) => {
 							</div>
 						</div>
 
-						<div className={styles.optionPost}>
-							<button
-								className={`${styles.optionPostBtn}`}
-							></button>
+						<div className={css.optionPost}>
+							<button className={`${css.optionPostBtn}`}></button>
 						</div>
 					</motion.div>
-					<div className={styles.postBody}>
+					<div className={css.postBody}>
 						{!isImageText && (
 							<div className='px-4 my-4 mt-5'>
 								<TextTruncate
@@ -212,7 +207,7 @@ const Post = ({ post, imgPrincipalUrl }) => {
 								{comentario?.length > 120 && (
 									<a
 										onClick={handle}
-										className={styles.showMore}
+										className={css.showMore}
 									>
 										{moreText.text}
 									</a>
@@ -232,6 +227,34 @@ const Post = ({ post, imgPrincipalUrl }) => {
 				</div>
 			)}
 		</>
+	);
+};
+
+const Trigger = () => {
+	return (
+		<div className={css.trigger} ref={ref}>
+			<div className={css.inputContainer}>
+				<Avatar
+					size={54}
+					nombre={"foto"}
+					url={"/assets/images/sinfoto.png"}
+				/>
+				<motion.button className={css.inputPost}>
+					<TextTruncate
+						line={1}
+						element='p'
+						truncateText={"..."}
+						text={
+							text.length > 0 && !showPostModal
+								? text
+								: `¿Qué estás pensando, ${
+										nombreCompleto || "usuario"
+								  }?`
+						}
+					/>
+				</motion.button>
+			</div>
+		</div>
 	);
 };
 

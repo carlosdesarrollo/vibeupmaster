@@ -7,7 +7,6 @@ export const authUserAtom = atom(null);
 export const authUserLoadingAtom = atom(true);
 
 // estados del menú
-export const overlayAtom = atom(false);
 export const modalAtom = atom(null);
 
 // estados del formulario
@@ -24,3 +23,9 @@ export const postsAtom = atom([]);
 
 // estados de las publicaciones de la página principal
 export const postsPrincipalAtom = atom([]);
+
+// estados de portal react
+export const portalAtom = atom(null);
+
+// estado userMenu
+export const userMenuAtom = atom(false);

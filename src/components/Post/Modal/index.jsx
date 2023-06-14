@@ -72,7 +72,7 @@ const ModalPost = ({ desactivarModal, userData, getPosts }) => {
 		setSubiendo(true);
 		try {
 			// creamos la rica publicacion
-			const createPostRes = await publicacionesApi.post("?page=iRegPub", {
+			const createPostRes = await publicacionesApi("?page=iRegPub", {
 				comentario: text,
 				usuario: Number(id),
 			});
@@ -94,7 +94,7 @@ const ModalPost = ({ desactivarModal, userData, getPosts }) => {
 				const { rutaimagen, imagenes } = uploadMediaRes.data;
 				// creamos las publicaciones detalle por cada imagen de imagenes
 				const postDetailPromises = imagenes.map(async (imagen) => {
-					const createPostDetailRes = await publicacionesApi.post(
+					const createPostDetailRes = await publicacionesApi(
 						"?page=iRegistrarPublicacionDetalle",
 						{
 							publicacionid: Number(postId),
@@ -236,13 +236,18 @@ const ModalPost = ({ desactivarModal, userData, getPosts }) => {
 		onDrop: imagesAndVideosHandler,
 	});
 
+	const imgPrincipal = userData?.usuarioEnt.images.find(
+		(img) => img.principal === "0"
+	);
+	const imgPrincipalUrl = imgPrincipal?.ruta + imgPrincipal?.nombre;
+
 	return (
 		<motion.div className={styles.container} layout>
 			<motion.div
 				onClick={desactivarModal}
 				className={styles.overlay}
 				initial={{ opacity: 0 }}
-				animate={{ opacity: 0.4 }}
+				animate={{ opacity: 0.5 }}
 				exit={{ opacity: 0 }}
 			/>
 			<motion.div
@@ -280,7 +285,7 @@ const ModalPost = ({ desactivarModal, userData, getPosts }) => {
 								size={55}
 								url={
 									(userData?.usuarioEnt?.images?.length &&
-										`${userData?.usuarioEnt.images[0].ruta}${userData?.usuarioEnt.images[0].nombre}`) ||
+										`${imgPrincipalUrl}`) ||
 									"/assets/images/sinfoto.png"
 								}
 							/>
@@ -350,6 +355,7 @@ const ModalPost = ({ desactivarModal, userData, getPosts }) => {
 													aria-label='eliminar todas las fotos y videos'
 													role={"button"}
 													className='bg-white hover:bg-gray-200 w-8 h-8 flex items-center justify-center rounded-full pointer-events-auto'
+													title='Eliminar todas las fotos y videos'
 													onClick={
 														eliminarTodasLasMedias
 													}

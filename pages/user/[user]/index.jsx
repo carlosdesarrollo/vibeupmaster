@@ -14,7 +14,7 @@ const UserPage = () => {
 
 	const getPosts = async () => {
 		try {
-			const response = await publicacionesApi.post("?page=iListarPub", {
+			const response = await publicacionesApi("?page=iListarPub", {
 				id: userData.usuarioEnt.id,
 			});
 			const data = JSON.parse(response.data);

@@ -6,6 +6,9 @@ import { useAtom } from "jotai";
 import { userDataAtom } from "../atoms";
 import axios from "axios";
 import Head from "next/head";
+import css from "./styles/mainLayout.module.scss";
+import BottomNavbar from "../components/BottomNavbar";
+import "swiper/css";
 
 const MainLayout = ({ children, title, description }) => {
 	const router = useRouter();
@@ -54,19 +57,16 @@ const MainLayout = ({ children, title, description }) => {
 				<title>{title ? `${title} | VibeUp` : `VibeUp`}</title>
 				<meta charSet='UTF-8' />
 				<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-				<meta
-					name='viewport'
-					content='width=device-width, initial-scale=1.0'
-				/>
 				<meta name='description' content={`${description}`} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<div id='__almeyda'>
-				<Navbar userData={userData} />
-				<div className='content'>
+				<Navbar {...{ userData }} />
+				<BottomNavbar {...{ userData }} />
+				<main className={css.content}>
 					<Aside userData={userData} />
-					<main>{children}</main>
-				</div>
+					<>{children}</>
+				</main>
 			</div>
 		</>
 	);

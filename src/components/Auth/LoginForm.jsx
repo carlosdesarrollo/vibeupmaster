@@ -52,17 +52,14 @@ const LoginForm = () => {
 			setLoading(true);
 			setError(false);
 			try {
-				const response = await seguridadApi.post(
-					"?page=iLogin",
-					values
-				);
+				const response = await seguridadApi("?page=iLogin", values);
 				if (response.data.status == 200) {
 					setUserRegistrado(null);
 					const data = response.data.usuarioEnt;
 					console.log(data);
 
 					// obtener la información completa del usuario
-					const responseUserData = await seguridadApi.post(
+					const responseUserData = await seguridadApi(
 						"?page=iCargarDatosUsu",
 						{
 							id: Number(data.id),
@@ -73,7 +70,7 @@ const LoginForm = () => {
 						const userData = responseUserData.data;
 						const { usuarioEnt, personaEnt } = userData;
 
-						const responseImgUser = await seguridadApi.post(
+						const responseImgUser = await seguridadApi(
 							"?page=iCargarUsuImg",
 							{
 								id: Number(usuarioEnt.id),

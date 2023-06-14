@@ -1,20 +1,35 @@
-import { useAtom } from "jotai";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import Overlay from "../Overlay";
+import { motion } from "framer-motion";
+import css from "./styles/portal.module.scss";
 
-const Portal = () => {
-	const [isMounted, setIsMounted] = useState(false);
+const Portal = ({ children, onClose, cssOverlay, target }) => {
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		setIsMounted(true);
+		setMounted(true);
+		document.documentElement.style.overflow = "hidden";
+		return () => {
+			setMounted(false);
+			// eliminar todo el style
+			document.documentElement.style.overflow = "";
+		};
 	}, []);
 
-	if (!isMounted) {
+	const handleOverlayClick = () => {
+		if (onClose) {
+			onClose();
+		}
+	};
+
+	if (!mounted) {
 		return null;
 	}
 
-	return createPortal(<Overlay />, document.getElementById("vibeup-portals"));
+	return createPortal(
+		children,
+		document.getElementById(target || "vibeup-portals")
+	);
 };
 
 export default Portal;

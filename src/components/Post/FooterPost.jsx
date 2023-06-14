@@ -21,7 +21,7 @@ const FooterPost = ({ post, imgPrincipalUrl }) => {
 	const handleLike = async () => {
 		setLoadingLike(true);
 		try {
-			const response = await publicacionesApi.post("?page=iRegLike", {
+			const response = await publicacionesApi("?page=iRegLike", {
 				publicacionid: post.id,
 			});
 			console.log(response);
